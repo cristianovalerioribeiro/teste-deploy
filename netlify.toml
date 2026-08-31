@@ -1,0 +1,13 @@
+# Configuracao de build da Netlify.
+# Versionada de proposito: o deploy passa a ser reproduzivel a partir do
+# repositorio, sem depender de ajustes feitos no painel.
+
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+# O runtime do Next.js e o que traduz a saida do build (rotas, SSR, imagens)
+# para a infraestrutura da Netlify. Sem ele, a pasta .next e servida como
+# arquivos estaticos e o site responde 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
